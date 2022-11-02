@@ -18,7 +18,8 @@ enum MassUnit implements SimpleUnit {
     GRAMS("g", 1),
     DECIGRAMS("dg", 1.0/10),
     CENTIGRAMS("cg", 1.0/100),
-    MILLIGRAMS("mg", 1.0/1000);
+    MILLIGRAMS("mg", 1.0/1000),
+    POUNDS("lbs", 1.0/453.6);
 
     private final String label;
     private final double factor;
@@ -108,3 +109,59 @@ enum NaturalTimeUnit implements SimpleUnit {
     @Override public String getLabel() { return this.label; }
     @Override public double getFactor() { return this.factor; }
 }
+
+enum LiquidVolumeUnit implements SimpleUnit {
+    LITERS("L", 1),
+    DECILITERS("dL", 1.0/10),
+    CENTILITERS("cL", 1.0/100),
+    MILLILITERS("mL", 1.0/1000),
+    MICROLITERS("µL", 1.0/1_000_000),
+    CENTIMETERS_CUBED("cm^3", 1);
+
+    private final String label;
+    private final double factor;
+    private LiquidVolumeUnit(String l, double f) {
+        this.label = l;
+        this.factor = f;
+    }
+
+    @Override public String getLabel() { return this.label; }
+    @Override public double getFactor() { return this.factor; }
+}
+
+enum ImperialDistanceUnit implements SimpleUnit {
+    INCHES("in", 1),
+    FEET("ft", 12),
+    YARDS("yds", 12*3),
+    MILES("mi", 12*3*1760);
+
+    private final String label;
+    private final double factor;
+    private ImperialDistanceUnit(String l, double f) {
+        this.label = l;
+        this.factor = f;
+    }
+
+    @Override public String getLabel() { return this.label; }
+    @Override public double getFactor() { return this.factor; }
+}
+
+enum ImperialLiquidVolumeUnit implements SimpleUnit {
+    TEASPOONS("tsp", 1),
+    TABLESPOONS("tbsp", 3),
+    FLUID_OUNCES("fl oz", 2*3),
+    CUPS("cups", 2*3*8),
+    PINTS("pints", 2*3*8*2),
+    QUARTS("quarts", 2*3*8*2*2),
+    GALLONS("gallons", 2*3*8*2*2*4);
+
+    private final String label;
+    private final double factor;
+    private ImperialLiquidVolumeUnit(String l, double f) {
+        this.label = l;
+        this.factor = f;
+    }
+
+    @Override public String getLabel() { return this.label; }
+    @Override public double getFactor() { return this.factor; }
+    }
